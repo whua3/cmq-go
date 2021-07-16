@@ -1,8 +1,8 @@
 package cmq_go
 
 import (
-	"strconv"
 	"fmt"
+	"strconv"
 )
 
 type Topic struct {
@@ -59,8 +59,8 @@ func (this *Topic) GetTopicAttributes() (meta TopicMeta, err error, code int) {
 	return
 }
 
-func (this *Topic) PublishMessage(message string) (msgId string, err error, code int) {
-	msgId, err, code = _publishMessage(this.client, this.topicName, message, nil, "")
+func (this *Topic) PublishMessage(message string, tagList []string, routingKey string) (msgId string, err error, code int) {
+	msgId, err, code = _publishMessage(this.client, this.topicName, message, tagList, routingKey)
 	return
 }
 
